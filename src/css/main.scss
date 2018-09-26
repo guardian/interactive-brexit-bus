@@ -11,16 +11,16 @@
 }
 
 .content__head, .article__header  {
-  background-color: #ffe500;
+  background-color: $highlight-yellow;
   height: 100%;
   margin: 0 auto;
 }
 // Background Image //
 .content__head::before  {
   display: block;
-  background-color: #ffe500;
+  background-color: $highlight-yellow;
   height: 300px;
-  width: 100%;
+  min-height: inherit;
   position: absolute;
 }
 // .content__head::after {
@@ -42,6 +42,8 @@
 //   }
 // }
 
+
+
 .content--interactive .content__headline, .headline {
   font-size: 32px;
   line-height: 36px;
@@ -62,7 +64,7 @@
     position: absolute;
     left: -10px;
     z-index: 2;
-    top: 0px;
+    top: 24px;
 
     @include mq($from: mobileLandscape) {
       left: -20px;
@@ -72,9 +74,10 @@
       background-image: url('<%= path %>/assets/brexit-header-desktop.png');
       width: 620px;
       left: -20px;
+      top: 0px;
     }
     @include mq($from: leftCol) {
-      left: -80px;
+      left: -70px;
     }
   }
 
@@ -101,22 +104,22 @@
   line-height: 24px;
   font-size: 20px;
   font-style: italic;
-  // max-width: 280px;
-  @include mq (tablet) {
+  max-width: 90%;
+  @include mq(tablet) {
     font-size: 22px;
     line-height: 28px;
+    max-width: 460px;
   }
   @include mq(leftCol) {
-    max-width: 460px;
 
     &:before {
       content: '';
-      border-left: 1px solid $neutral-46;
+      border-left: 1px solid $neutral-60;
       height: 200px;
       top: initial;
-      bottom: 0px;
+      bottom: -44px;
       position: absolute;
-      left: -10px;
+      left: 0px;
     }
   }
 }
@@ -165,6 +168,23 @@ a, .u-fauxlink {
       color: #c70000;
 }
 
+.content--interactive .content__meta-container {
+  margin-left: -10px;
+  padding-right: 10px;
+  padding-left: 10px;
+
+  @include mq(mobileLandscape) {
+    margin-left: -20px;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  @include mq(leftCol) {
+    margin-left: -10px;
+    padding-left: 10px;
+    padding-right: 0px;
+  }
+}
+
 .content__meta-container{
   background-image: repeating-linear-gradient(to bottom, #dcdcdc, #dcdcdc 0.0625rem, transparent 0.0625rem, transparent 0.25rem);
   background-repeat: repeat-x;
@@ -173,6 +193,8 @@ a, .u-fauxlink {
   background-size: 0.0625rem 0.8125rem;
   padding-top: 12px;
   border-top: none;
+
+  margin-left: -10px;
 }
 .content__main-column--interactive {
     & > p, & > h2,& > ul,  .element-interactive,.element-atom {
@@ -255,6 +277,15 @@ a, .u-fauxlink {
 .content--interactive:not(.paid-content) .element-interactive {
     background-color: transparent;
 }
+
+.content__main-column--interactive .element-interactive {
+
+  @include mq($until: 400px) {
+    max-width: 320px;
+  }
+
+}
+
 
 .interactive-grid {
     position: relative;
