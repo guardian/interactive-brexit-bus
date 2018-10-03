@@ -117,7 +117,7 @@
       border-left: 1px solid $neutral-60;
       height: 200px;
       top: initial;
-      bottom: -44px;
+      bottom: -94px;
       position: absolute;
       left: 0px;
     }
@@ -396,4 +396,21 @@ a, .u-fauxlink {
     padding: 3px 2px 2px 4px;
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
+}
+
+// ios & android //
+
+.ios, .android {
+  .article__header .headline {
+    &:before {
+      position: relative;
+      margin-left: -12px;
+      margin-top: 12px;
+      margin-bottom: 24px;
+    }
+  }
+  .article__header {
+    background-color: #ffe500 !important;
+  }
+
 }
